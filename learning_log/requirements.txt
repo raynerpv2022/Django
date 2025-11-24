@@ -10,7 +10,7 @@ sqlparse==0.5.3
 # 🚀 PARA RENDER - NUEVOS
 gunicorn==21.2.0        # Servidor producción
 whitenoise==6.6.0       # Archivos estáticos  
-psycopg2-binary==3.2.13  # Conexión PostgreSQL
+psycopg2-binary==2.9.11  # Conexión PostgreSQL
 dj-database-url==2.1.0  # Manejo URLs BD
 python-dotenv==1.0.0    # Variables entorno
 
