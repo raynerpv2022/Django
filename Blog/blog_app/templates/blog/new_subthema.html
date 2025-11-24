@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "blog/base.html" %}
+    {% load django_bootstrap5 %}
+    {% block page_header %}
+        <h2>New SubThema </h2> 
+    {% endblock page_header %}
+
+    {% block content %}
+    <br>
+    TEhma :  {{thema.id}} <a href="{% url 'blog_app:blog' %}"> {{thema.thema}} </a>
+    <br><br>
+        <form action="{% url 'blog_app:new_subthema' thema.id %}" method="post">
+            {% csrf_token%}
+            {% bootstrap_form form %}
+            {% bootstrap_button button_type="submit" content="Save SubThema" %}
+        </form>
+    {% endblock content%}
+    
+</body>
+</html>

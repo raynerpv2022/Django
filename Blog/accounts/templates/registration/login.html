@@ -1,0 +1,24 @@
+diff <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        {% extends 'blog/base.html'%}
+        {% block content %}
+        <br><br>
+        {% if form.errors %}
+            Pass WOrd Inco RRECt
+        {% endif %}
+            
+        <br><br>
+        <form action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+            {{form.as_div}}
+            <button name="submit"> Login </button>
+        </form>
+        {% endblock content %}
+</body>
+</html>

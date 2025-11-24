@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'blog/base.html' %}
+    {% block page_header%}
+        <h2> SubThemas of {{thema}} </h2>
+    {% endblock page_header %}
+
+    {% block content %}
+
+ 
+    {% for i in subthema %}
+        
+    <div class="card mb-3">
+            <!-- Card header with timestamp and edit link -->
+            <h4 class="card-header">
+            {{ i.date|date:'M d, Y H:i' }}
+            <small><a href="{% url 'blog_app:edit_subthema' i.id %}">Edit  </a></small>
+            </h4>
+            <!-- Card body with entry text -->
+        <div class="card-body">{{ i.subthema|linebreaks }}</div>
+    </div>
+
+    {% endfor %}
+ 
+      
+
+
+
+   
+         
+    <a href="{% url 'blog_app:new_subthema' thema.id %}"> Add New SubThema </a>
+        
+   
+    {% endblock content %}
+</body>
+</html>

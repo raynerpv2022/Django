@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "blog/base.html" %}
+    {% block page_header %}
+        <h2> User List</h2>
+   {% endblock page_header %}
+
+    {% block content %}
+
+    Users Themas and  Owners 
+    {% for user ,thema in usersDic.items %}
+        <div class="card mb-3">
+            <h4 class="card-header">
+                 {{ user.id }} -- {{ user.username }}
+            </h4>
+            <div class="card-body"></div>
+            {% for c in thema %}
+                {{ c }}
+            {% empty %} 
+                There is not registered food
+            {% endfor %}
+        </div>
+    {% empty %}
+         There is not registered Users
+    {% endfor %}
+
+
+ 
+    {% endblock content %}
+
+</body>
+</html>

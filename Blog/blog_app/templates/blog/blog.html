@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "blog/base.html" %}
+
+    {% block page_header%}
+        <h2> Thema </h2>
+    {% endblock page_header %}
+ 
+    {% block content %}
+
+    <ul class="list-group border-bottom pb-2 mb-4">
+
+    {% for i in themas %}
+        
+    
+        <li class="list-group-item border-0">
+                {{i.id}} --- >  {{i.date}}  --- >  <a href = "{% url 'blog_app:thema' i.id  %}">{{i.thema}}</a> </li>
+    
+        {% empty %}
+            <li class="list-group-item border-0">
+                ESto esta vacio
+                </li>
+
+        
+
+    {% endfor %} 
+    </ul> 
+
+     
+    <br><br>
+    <a href="{%url 'blog_app:new_thema' %}"> Add New Thema</a>
+    </u>
+    {% endblock content %}
+</body>
+</html>
