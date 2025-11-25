@@ -13,4 +13,9 @@ python manage.py collectstatic --noinput --clear
 echo "3. 🗃️ Aplicando migraciones de base de datos..."
 python manage.py migrate
 
+# Create a superuser non-interactively if the environment variable is set
+if [[ $CREATE_SUPERUSER ]]; then
+    python manage.py createsuperuser --no-input
+fi
+
 echo "=== ✅ CONSTRUCCIÓN COMPLETADA ==="
